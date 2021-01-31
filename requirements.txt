@@ -1,6 +1,5 @@
-Flask
+flask
 gunicorn
-numpy
 pandas
 tensorflow==2.4.1
 keras==2.4.0
