@@ -1,6 +1,5 @@
 Flask
 gunicorn
-itsdangerours
 numpy
 pandas
 tensoflow
