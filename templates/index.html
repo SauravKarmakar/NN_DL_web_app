@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>GL - Neural Network &amp; Deep Learning</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+    <style>
+        body {
+            font-family: sans-serif, Monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <h1>Neural Network GUI - Great Learning</h1>
+
+        <!-- Step 1 -->
+        <form action="{{ url_for('import_data')}}" method="post">
+            <p>Step1: File Name</p>
+            <input type="text" name="file_name" placeholder="Input the file name" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">Import Data</button>
+        </form>
+        <br>
+        Result: {{ data_imported }}
+
+        <hr>
+        <!-- Step 2 -->
+        <form action="{{ url_for('import_target')}}" method="post">
+            <p>Step2: Target Column</p>
+            <input type="text" name="file_name" placeholder="Input the target column name" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">Import Target</button>
+        </form>
+        <br>
+        Result: {{ target_imported }}
+
+        <hr>
+        <!-- Step 3 -->
+
+        <p>Step3: Neural Network Regressor</p>
+        <p>Regression</p>
+        <form action="{{ url_for('nn_reg_train', id = 1) }}" method="post">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Train</button>
+        </form>
+        <p>Result: {{ nnr_trained }}</p>
+
+        <p>Pickle</p>
+        <form action="{{ url_for('nn_reg_train', id = 2) }}" method="post">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Save</button>
+        </form>
+        <p>Result: {{ nnr_saved }}</p>
+
+        <br>
+
+        <hr>
+        <!-- Step 4 -->
+        <p>Step4: Neural Network Classifier</p>
+        <p>Classifier</p>
+        <form action="{{ url_for('nn_class_train', id = 1) }}" method="post">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Train</button>
+        </form>
+        <p>Result: {{ nnc_trained }}</p>
+        <p>Pickle</p>
+        <form action="{{ url_for('nn_class_train', id = 2) }}" method="post">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Save</button>
+        </form>
+        <p>Result: {{ nnc_saved }}</p>
+        </form>
+        <br>
+
+    </div>
+
+
+</body>
+
+</html>
